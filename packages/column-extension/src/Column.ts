@@ -11,4 +11,14 @@ export const Column = Node.create({
     const attrs = mergeAttributes(HTMLAttributes, { class: 'column' });
     return ['div', attrs, 0];
   },
+  parseHTML() {
+    return [
+      {
+        tag: 'div',
+        getAttrs: (element) => {
+          return element.getAttribute('class') == 'column';
+        },
+      },
+    ];
+  },
 });
